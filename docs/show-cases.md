@@ -63,11 +63,11 @@ const Broker = require('micro-panda-broker')
 
 const broker = new Broker({transporter: new Transporter()})
 broker.on('hello', (name) => console.log(`hello ${name}`))
-broker.on('hello.world', (name) => console.log(`hello.world $name`))
+broker.on('hello.world', (name) => console.log(`hello.world ${name}`))
 
 // note: * and > are NATS specific features
 // they may not be implemented in other transporter unless transporter contract updated
-broker.on('hello.*', (name) => console.log(`hello.* $name`))
+broker.on('hello.*', (name) => console.log(`hello.* ${name}`))
 broker.on('hello.>', (name) => console.log(`hello.> ${name}`))
 
 broker.start().then(async () => {
